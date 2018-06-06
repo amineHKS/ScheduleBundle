@@ -1,0 +1,332 @@
+{
+    "stop_schedules": [
+        {
+            "stop_point": {
+                "name": "GARE D'ORLEANS QUAI J",
+                "links": [],
+                "coord": {
+                    "lat": "47.907064",
+                    "lon": "1.90636"
+                },
+                "label": "GARE D'ORLEANS QUAI J (Orléans)",
+                "equipments": [],
+                "administrative_regions": [
+                    {
+                        "insee": "45234",
+                        "name": "Orléans",
+                        "level": 8,
+                        "coord": {
+                            "lat": "47.90135582",
+                            "lon": "1.90392049"
+                        },
+                        "label": "Orléans (45000)",
+                        "id": "admin:45234",
+                        "zip_code": "45000"
+                    }
+                ],
+                "id": "stop_point:OLS:SP:00017056",
+                "stop_area": {
+                    "name": "gare d'Orléans",
+                    "links": [],
+                    "coord": {
+                        "lat": "47.908153",
+                        "lon": "1.904753"
+                    },
+                    "label": "gare d'Orléans (Orléans)",
+                    "administrative_regions": [
+                        {
+                            "insee": "45234",
+                            "name": "Orléans",
+                            "level": 8,
+                            "coord": {
+                                "lat": "47.90135582",
+                                "lon": "1.90392049"
+                            },
+                            "label": "Orléans (45000)",
+                            "id": "admin:45234",
+                            "zip_code": "45000"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "id": "stop_area:SCF:SA:SAOCE87543009"
+                }
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:OLS:16-9423"
+                },
+                {
+                    "type": "route",
+                    "id": "route:OLS:16-9609"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:Bus"
+                },
+                {
+                    "type": "network",
+                    "id": "network:Semtao"
+                }
+            ],
+            "date_times": [
+                {
+                    "date_time": "20150925T075400",
+                    "additional_informations": [],
+                    "links": [
+                        {
+                            "internal": true,
+                            "type": "notes",
+                            "id": "destination:3915595669782039643",
+                            "rel": "notes"
+                        },
+                        {
+                            "type": "vehicle_journey",
+                            "value": "vehicle_journey:OLS:6582346-AFSEMHIV-Semaine-0010020_dst_1",
+                            "rel": "vehicle_journeys",
+                            "id": "vehicle_journey:OLS:6582346-AFSEMHIV-Semaine-0010020_dst_1"
+                        }
+                    ]
+                }
+            ],
+            "route": {
+                "direction": {
+                    "embedded_type": "stop_area",
+                    "quality": 0,
+                    "stop_area": {
+                        "name": "COLLEGE VAL DE LOIRE",
+                        "links": [],
+                        "coord": {
+                            "lat": "47.873523",
+                            "lon": "1.975774"
+                        },
+                        "label": "COLLEGE VAL DE LOIRE (Saint-Denis-en-Val)",
+                        "administrative_regions": [
+                            {
+                                "insee": "45274",
+                                "name": "Saint-Denis-en-Val",
+                                "level": 8,
+                                "coord": {
+                                    "lat": "47.87874638",
+                                    "lon": "1.955096842"
+                                },
+                                "label": "Saint-Denis-en-Val (45560)",
+                                "id": "admin:45274",
+                                "zip_code": "45560"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "id": "stop_area:OLS:SA:CVL"
+                    },
+                    "name": "COLLEGE VAL DE LOIRE (Saint-Denis-en-Val)",
+                    "id": "stop_area:OLS:SA:CVL"
+                },
+                "name": "CROIX AUX CHATS - COLLEGE VAL DE LOIRE",
+                "links": [],
+                "is_frequence": "False",
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "line": {
+                    "code": "16",
+                    "name": "ST DENIS Collège - ST HILAIRE Croix aux Chats",
+                    "links": [],
+                    "physical_modes": [
+                        {
+                            "name": "Bus",
+                            "id": "physical_mode:Bus"
+                        }
+                    ],
+                    "opening_time": "055500",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "commercial_mode": {
+                        "name": "Bus",
+                        "id": "commercial_mode:Bus"
+                    },
+                    "color": "fea770",
+                    "closing_time": "204000",
+                    "routes": [
+                        {
+                            "direction": {
+                                "embedded_type": "stop_area",
+                                "quality": 0,
+                                "stop_area": {
+                                    "name": "COLLEGE VAL DE LOIRE",
+                                    "links": [],
+                                    "coord": {
+                                        "lat": "47.873523",
+                                        "lon": "1.975774"
+                                    },
+                                    "label": "COLLEGE VAL DE LOIRE (Saint-Denis-en-Val)",
+                                    "timezone": "Europe/Paris",
+                                    "id": "stop_area:OLS:SA:CVL"
+                                },
+                                "name": "COLLEGE VAL DE LOIRE (Saint-Denis-en-Val)",
+                                "id": "stop_area:OLS:SA:CVL"
+                            },
+                            "name": "CROIX AUX CHATS - COLLEGE VAL DE LOIRE",
+                            "links": [],
+                            "is_frequence": "False",
+                            "geojson": {
+                                "type": "MultiLineString",
+                                "coordinates": []
+                            },
+                            "id": "route:OLS:16-9609"
+                        },
+                        {
+                            "direction": {
+                                "embedded_type": "stop_area",
+                                "quality": 0,
+                                "stop_area": {
+                                    "name": "CROIX AUX CHATS",
+                                    "links": [],
+                                    "coord": {
+                                        "lat": "47.85878",
+                                        "lon": "1.829365"
+                                    },
+                                    "label": "CROIX AUX CHATS (Saint-Hilaire-Saint-Mesmin)",
+                                    "timezone": "Europe/Paris",
+                                    "id": "stop_area:OLS:SA:CROIX"
+                                },
+                                "name": "CROIX AUX CHATS (Saint-Hilaire-Saint-Mesmin)",
+                                "id": "stop_area:OLS:SA:CROIX"
+                            },
+                            "name": "COLLEGE VAL DE LOIRE - CROIX AUX CHATS",
+                            "links": [],
+                            "is_frequence": "False",
+                            "geojson": {
+                                "type": "MultiLineString",
+                                "coordinates": []
+                            },
+                            "id": "route:OLS:16-9609_R"
+                        }
+                    ],
+                    "id": "line:OLS:16-9423",
+                    "network": {
+                        "name": "TAO - Orléans",
+                        "links": [],
+                        "id": "network:Semtao"
+                    }
+                },
+                "id": "route:OLS:16-9609"
+            },
+            "additional_informations": null,
+            "display_informations": {
+                "direction": "COLLEGE VAL DE LOIRE (Saint-Denis-en-Val)",
+                "code": "16",
+                "network": "TAO - Orléans",
+                "links": [],
+                "color": "fea770",
+                "label": "16",
+                "commercial_mode": "Bus"
+            }
+        }
+    ],
+    "pagination": {
+        "start_page": 0,
+        "items_on_page": 1,
+        "items_per_page": 50,
+        "total_result": 1
+    },
+    "links": [
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_points/{stop_point.id}",
+            "type": "stop_point",
+            "rel": "stop_points",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_areas/{stop_area.id}",
+            "type": "stop_area",
+            "rel": "stop_areas",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/physical_modes/{physical_modes.id}",
+            "type": "physical_modes",
+            "rel": "physical_modes",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/routes/{route.id}",
+            "type": "route",
+            "rel": "routes",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/commercial_modes/{commercial_mode.id}",
+            "type": "commercial_mode",
+            "rel": "commercial_modes",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/routes/{routes.id}",
+            "type": "routes",
+            "rel": "routes",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/lines/{line.id}",
+            "type": "line",
+            "rel": "lines",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/networks/{network.id}",
+            "type": "network",
+            "rel": "networks",
+            "templated": true
+        },
+        {
+            "href": "http://navitia2-ws.ctp.dev.canaltp.fr/v1/coverage/fr-cen/stop_areas/stop_area:SCF:SA:SAOCE87543009/stop_schedules",
+            "type": "first",
+            "templated": false
+        }
+    ],
+    "disruptions": [],
+    "notes": [
+        {
+            "type": "notes",
+            "id": "destination:11540859757328505579",
+            "value": "GARE DES AUBRAIS"
+        },
+        {
+            "type": "notes",
+            "id": "destination:12736264697508271602",
+            "value": "LES MONTAUBANS"
+        },
+        {
+            "type": "notes",
+            "id": "destination:8837650016006746006",
+            "value": "RAMEAU"
+        },
+        {
+            "type": "notes",
+            "id": "destination:3915595669782039643",
+            "value": "gare d'Orléans"
+        },
+        {
+            "type": "notes",
+            "id": "destination:7092084018800608542",
+            "value": "CHAMP ROUGE"
+        },
+        {
+            "type": "notes",
+            "id": "destination:3296402816078230766",
+            "value": "TROIS FONTAINES"
+        }
+    ],
+    "feed_publishers": [
+        {
+            "url": "",
+            "id": "fr-cen",
+            "license": "",
+            "name": ""
+        }
+    ],
+    "exceptions": []
+}

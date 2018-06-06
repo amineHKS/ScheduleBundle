@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="canaltp_schedule.search.form" class="CanalTP\ScheduleBundle\Form\Type\ScheduleType">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="canaltp_schedule.line.search.form" class="CanalTP\ScheduleBundle\Form\Type\LineScheduleType">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="canaltp_schedule.precision.form" class="CanalTP\ScheduleBundle\Form\Type\PrecisionType">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="canaltp_schedule.form.processor" class="CanalTP\ScheduleBundle\Processor\FormProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setApi">
+                <argument type="service" id="navitia.stop_schedules" />
+            </call>
+            <call method="setFormType">
+                <argument type="service" id="canaltp_schedule.search.form" />
+            </call>
+            <call method="setResponseManager">
+                <argument type="service" id="canaltp_response" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.line.form.processor" class="CanalTP\ScheduleBundle\Processor\LineFormProcessor">
+            <call method="setTimezone">
+                <argument>%timezone%</argument>
+            </call>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setApi">
+                <argument type="service" id="navitia.route_schedules" />
+            </call>
+            <call method="setFormType">
+                <argument type="service" id="canaltp_schedule.line.search.form" />
+            </call>
+            <call method="setResponseManager">
+                <argument type="service" id="canaltp_response" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.precision.processor" class="CanalTP\ScheduleBundle\Processor\PrecisionProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setApi">
+                <argument type="service" id="navitia.stop_schedules" />
+            </call>
+            <call method="setFormType">
+                <argument type="service" id="canaltp_schedule.precision.form" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.stop.schedule.processor" class="CanalTP\ScheduleBundle\Processor\StopScheduleProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setApi">
+                <argument type="service" id="navitia.stop_schedules" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.stop.points.processor" class="CanalTP\ScheduleBundle\Processor\StopPointsProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <call method="setApi">
+                <argument type="service" id="navitia.stop_points" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.other.lines.processor" class="CanalTP\ScheduleBundle\Processor\OtherLinesProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.next.departure.processor" class="CanalTP\ScheduleBundle\Processor\NextDepartureMapProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <service id="canaltp_schedule.mb.processor" class="CanalTP\ScheduleBundle\Processor\MBProcessor">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <!-- Form Types -->
+        <service id="form.type.date_hidden_time" class="CanalTP\ScheduleBundle\Form\Type\DateHiddenTimeType">
+            <tag name="form.type" alias="date_hidden_time" />
+        </service>
+
+        <service id="schedule.twig.schedule_extension" class="CanalTP\ScheduleBundle\Twig\ScheduleExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="schedule.twig.real_time_extension" class="CanalTP\ScheduleBundle\Twig\RealTimeExtension">
+            <tag name="twig.extension" />
+            <argument type="service" id="translator" />
+        </service>
+
+    </services>
+</container>

@@ -1,0 +1,77 @@
+schedule_home:
+    path:  /schedule/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:index }
+    options:
+        expose: true
+
+journey_home:
+    path:  /journey/
+    defaults: { _controller: CanalTPJourneyBundle:Journey:index }
+    options:
+        expose: true
+
+schedule_form_precision:
+    path:  /schedule/precision/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:precision }
+
+schedule_form_result:
+    path:  /schedule/result/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:result }
+
+schedule_result_print:
+    path:  /schedule/result/print
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:print }
+
+schedule_result_timetable:
+    path:  /schedule/result/timetable
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:timetable }
+
+line_schedule_form_ajax:
+    path:  /schedule/line/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:lineSchedule }
+
+line_schedule_form_result:
+    path:  /schedule/line/result/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:lineResult }
+
+line_schedule_result_print:
+    path:  /schedule/line/result/print
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:lineResult }
+
+schedule_popup_dynamic:
+    path: /schedule/popup
+    defaults: { _controller: CanalTPScheduleBundle:Map:popup }
+    options:
+        expose: true
+
+multimodal_form_precision:
+    path:  /schedule/multimodal/precision/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:multimodalPrecision }
+
+multimodal_form_result:
+    path:  /schedule/multimodal/result/
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:multimodalResult }
+
+schedule_redirect_mb:
+    path: /{pack_route}
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:redirectMb }
+    requirements:
+        pack_route: route/vueHoraire|route/vueHoraire/precision|route/vueHoraire/result|Horaires|Horaires/Precision|Horaires/Resultats
+    options:
+        i18n: false
+
+schedule_redirect_mb_site_access:
+    path: /{site_access}/{pack_route}
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:redirectMb }
+    requirements:
+        pack_route: route/vueHoraire|route/vueHoraire/precision|route/vueHoraire/result|Horaires|Horaires/Precision|Horaires/Resultats
+    options:
+        i18n: false
+
+schedule_redirect_mb_site_access_index:
+    path: /{index}/{site_access}/{pack_route}
+    defaults: { _controller: CanalTPScheduleBundle:Schedule:redirectMb }
+    requirements:
+        pack_route: route/vueHoraire|route/vueHoraire/precision|route/vueHoraire/result|Horaires|Horaires/Precision|Horaires/Resultats
+    options:
+        i18n: false

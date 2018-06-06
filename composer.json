@@ -1,0 +1,26 @@
+{
+  "name": "canaltp/schedule-bundle",
+  "type": "library",
+  "description": "Canal TP Schedule Bundle",
+  "keywords": ["places", "find", "suggest"],
+  "homepage": "https://github.com/CanalTP/ScheduleBundle",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Francis BEUZON",
+      "email": "francis.beuzon@kisio.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "CanalTP\\ScheduleBundle\\": "" }
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}

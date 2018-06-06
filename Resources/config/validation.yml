@@ -1,0 +1,18 @@
+CanalTP\PlacesBundle\Entity\StopSchedules:
+    properties:
+        path_filter:
+            - NotBlank: { message: 'stop_schedules.path_filter.errors.blank' }
+        from_datetime:
+            - NotBlank: { message: 'stop_schedules.from_datetime.errors.blank' }
+
+CanalTP\PlacesBundle\Entity\NextDepartures:
+    properties:
+        from_datetime:
+            - NotBlank: { message: 'next_departures.from_datetime.errors.blank' }
+
+CanalTP\PlacesBundle\Entity\RouteSchedules:
+    properties:
+        path_filter:
+            - NotBlank: { message: 'route_schedules.path_filter.errors.blank' }
+        from_datetime:
+            - NotBlank: { message: 'route_schedules.from_datetime.errors.blank' }

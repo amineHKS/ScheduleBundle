@@ -1,0 +1,151 @@
+services:
+    canaltp.timetable:
+        class: CanalTP\ScheduleBundle\Service\Files\TimetableService
+        calls:
+            - [setUri, ['%timetable_api_url%']]
+            - [setNetworks, ['%networks.items%']]
+
+    navitia.departures:
+        class: CanalTP\ScheduleBundle\Service\DeparturesService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [departures]]
+
+    navitia.networks:
+        class: CanalTP\PlacesBundle\Service\Coverage\NetworksService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [networks]]
+
+    navitia.lines:
+        class: CanalTP\PlacesBundle\Service\CoverageService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [lines]]
+
+    navitia.routes:
+        class: CanalTP\PlacesBundle\Service\CoverageService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [routes]]
+
+    navitia.physical_modes:
+        class: CanalTP\PlacesBundle\Service\CoverageService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [physical_modes]]
+
+    navitia.stop_points:
+        class: CanalTP\PlacesBundle\Service\CoverageService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setRequestAction, [stop_points]]
+
+    navitia.coverage.processor:
+        class: CanalTP\PlacesBundle\Processor\CoverageProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    navitia.stop_schedules:
+        class: CanalTP\ScheduleBundle\Service\StopSchedulesService
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setTrafficMediaDisruption, ['@traffic.media_disruptions']]
+            - [setTimetable, ['@canaltp.timetable']]
+
+    navitia.stop_schedules.processor:
+        class: CanalTP\ScheduleBundle\Processor\StopSchedulesProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    navitia.route_schedules:
+        class: CanalTP\ScheduleBundle\Service\RouteSchedulesService
+        arguments: ['@traffic.media_disruptions']
+        calls:
+            - [setContainer, ['@service_container']]
+
+    navitia.route_schedules.processor:
+        class: CanalTP\ScheduleBundle\Processor\RouteSchedulesProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    validator.unique.date_range:
+        class: CanalTP\ScheduleBundle\Validator\Constraints\DateRangeValidator
+        tags:
+            - { name: validator.constraint_validator, alias: date_range_schedule }
+        arguments: ['@service_container']
+        
+    canaltp_schedule.search.form:
+        class: CanalTP\ScheduleBundle\Form\Type\ScheduleType
+        arguments: ['@service_container']
+    canaltp_schedule.line.search.form:
+        class: CanalTP\ScheduleBundle\Form\Type\LineScheduleType
+        arguments: ['@service_container']
+    canaltp_schedule.precision.form:
+        class: CanalTP\ScheduleBundle\Form\Type\PrecisionType
+        arguments: ['@service_container']
+    canaltp_schedule.form.processor:
+        class: CanalTP\ScheduleBundle\Processor\FormProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setApi, ['@navitia.stop_schedules']]
+            - [setFormType, ['@canaltp_schedule.search.form']]
+            - [setResponseManager, ['@canaltp_response']]
+
+    canaltp_schedule.line.form.processor:
+        class: CanalTP\ScheduleBundle\Processor\LineFormProcessor
+        calls:
+            - [setTimezone, ['%timezone%']]
+            - [setContainer, ['@service_container']]
+            - [setApi, ['@navitia.route_schedules']]
+            - [setFormType, ['@canaltp_schedule.line.search.form']]
+            - [setResponseManager, ['@canaltp_response']]
+
+    canaltp_schedule.precision.processor:
+        class: CanalTP\ScheduleBundle\Processor\PrecisionProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setApi, ['@navitia.stop_schedules']]
+            - [setFormType, ['@canaltp_schedule.precision.form']]
+
+    canaltp_schedule.stop.schedule.processor:
+        class: CanalTP\ScheduleBundle\Processor\StopScheduleProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setApi, ['@navitia.stop_schedules']]
+
+    canaltp_schedule.stop.points.processor:
+        class: CanalTP\ScheduleBundle\Processor\StopPointsProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setApi, ['@navitia.stop_points']]
+
+    canaltp_schedule.other.lines.processor:
+        class: CanalTP\ScheduleBundle\Processor\OtherLinesProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    canaltp_schedule.next.departure.processor:
+        class: CanalTP\ScheduleBundle\Processor\NextDepartureMapProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    canaltp_schedule.mb.processor:
+        class: CanalTP\ScheduleBundle\Processor\MBProcessor
+        calls:
+            - [setContainer, ['@service_container']]
+
+    form.type.date_hidden_time:
+        class: CanalTP\ScheduleBundle\Form\Type\DateHiddenTimeType
+        tags:
+            - { name: form.type, alias: date_hidden_time }
+    schedule.twig.schedule_extension:
+        class: CanalTP\ScheduleBundle\Twig\ScheduleExtension
+        tags:
+            - { name: twig.extension }
+        arguments: ['@service_container']
+    schedule.twig.real_time_extension:
+        class: CanalTP\ScheduleBundle\Twig\RealTimeExtension
+        tags:
+            - { name: twig.extension }
+        arguments: ['@translator']
